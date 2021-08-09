@@ -13,6 +13,7 @@ function App(props) {
                 completed={task.completed}
                 key={task.id}
                 toggleTaskCompleted={toggleTaskCompleted}
+                deleteTask={deleteTask}
             />
         )
     );
@@ -36,6 +37,11 @@ function App(props) {
             return task
         });
         setTasks(updatedTask)
+    }
+
+    function deleteTask(id) {
+        const remainingTask = tasks.filter(task => id !== task.id);
+        setTasks(remainingTask);
     }
 
 
